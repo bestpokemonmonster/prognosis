@@ -52,16 +52,16 @@ colors<-brewer.pal(25,"Set3") #produce set of color
 colors
 boxplot(exp3,col=colors,notch=T,outline=FALSE, las=3,ylim=c(2,10)) 
 ##Build a matrix for differently express analysis
-design=model.matrix(~ group_list) #~followed factor£¬can¡®t be vector¡£0~ or ~£¬not add 0 shows first colum as control£¬compared with the second col
+design=model.matrix(~ group_list) #~followed factorÂ£Â¬canÂ¡Â®t be vectorÂ¡Â£0~ or ~Â£Â¬not add 0 shows first colum as controlÂ£Â¬compared with the second col
 View(design)
 colnames(design) <- levels(group_list)
 rownames(design) <- colnames(exp2)
-##lmFit()£ºLinear fitting model construction
+##lmFit()Â£ÂºLinear fitting model construction
 fit=lmFit(exp3,design)
 ##eBayes()
 fit=eBayes(fit) 
 ##topTable
-##coef=2 mean design¡¯s second col--tumour£¬compared with normal
+##coef=2 mean designÂ¡Â¯s second col--tumourÂ£Â¬compared with normal
 allDiff=topTable(fit,coef=2,adjust='fdr',number=Inf) #fdr mean adj.p
 View(allDiff)
 write.table(allDiff,file = "allDiff.txt",sep = "\t",col.names = NA)
