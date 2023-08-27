@@ -58,11 +58,11 @@ colors<-brewer.pal(1100,"Set3") #produce set of color
 colors
 boxplot(exp5,col=colors,notch=T,outline=FALSE, las=3,ylim=c(2,10)) 
 ##Build a matrix for differently express analysis
-design=model.matrix(~ group_list) #~followed factor£¬can¡®t be vector¡£0~ or ~£¬not add 0 shows first colum as control£¬compared with the second col
+design=model.matrix(~ group_list) #~followed factorÂ£Â¬canÂ¡Â®t be vectorÂ¡Â£0~ or ~Â£Â¬not add 0 shows first colum as controlÂ£Â¬compared with the second col
 View(design)
 colnames(design) <- levels(group_list)
 rownames(design) <- colnames(exp2)
-##lmFit()£ºLinear fitting model construction
+##lmFit()Â£ÂºLinear fitting model construction
 fit=lmFit(exp4,design)
 ##eBayes()
 fit=eBayes(fit) 
