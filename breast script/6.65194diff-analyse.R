@@ -45,7 +45,7 @@ luminalA=filter(pdata,group=='Luminal A')
 luminalB=filter(pdata,group=='Luminal B')
 Her2=filter(pdata,group=='Her2')
 exp2=exp.pl[,c(normal[,c(1)],TNBC[,c(1)],CellLine[,c(1)],luminalA[,c(1)],luminalB[,c(1)],Her2[,c(1)])]
-##control£¬latter is treat
+##controlÂ£Â¬latter is treat
 group_list=c(rep('control',11),rep('cancer',167))
 ##turn as foctor
 group_list=factor(group_list)
@@ -57,11 +57,11 @@ colors<-brewer.pal(25,"Set3") #produce a set of color
 colors
 boxplot(exp2,col=colors,notch=T,outline=FALSE, las=3,ylim=c(2,10)) 
 ##Build a matrix for differently express analysis
-design=model.matrix(~ group_list)  #~followed factor£¬can¡®t be vector¡£0~ or ~£¬not add 0 shows first colum as control£¬compared with the second col
+design=model.matrix(~ group_list)  #~followed factorÂ£Â¬canÂ¡Â®t be vectorÂ¡Â£0~ or ~Â£Â¬not add 0 shows first colum as controlÂ£Â¬compared with the second col
 View(design)
 colnames(design) <- levels(group_list)
 rownames(design) <- colnames(exp2)
-##lmFit()£ºLinear fitting model construction
+##lmFit()Â£ÂºLinear fitting model construction
 fit=lmFit(exp2,design)
 ##eBayes()
 fit=eBayes(fit) 
