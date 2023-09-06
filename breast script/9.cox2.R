@@ -18,6 +18,13 @@ gene3=c(gene,gene2)
 intersect(gene,gene2)
 gene4=unique(gene3)
 #
+c1=cancersign[,1]
+n1=normalsign[,1]
+sc1=rownames(scsign)
+write.csv(c1,'breastcancergene.csv')
+write.csv(n1,'breastnormalgene.csv')
+write.csv(sc1,'breastscgene.csv')
+#
 load('../bulk/TCGA/mRNA_exprset_norm.RData')
 gene5=rownames(mRNA_exprSet)
 load('../cox/genename.RData')
