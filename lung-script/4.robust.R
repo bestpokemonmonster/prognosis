@@ -112,3 +112,10 @@ venn.plot <- venn.diagram(
 grid.newpage()
 grid.draw(venn.plot)
 dev.off()
+
+LC100=cancersign[1:100,]
+LC100$rank=1:100
+LN100=normalsign[1:100,]
+LN100$rank=1:100
+write.csv(LC100,'C100.csv')
+write.csv(LN100,'N100.csv')
