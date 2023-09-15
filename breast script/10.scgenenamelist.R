@@ -1,0 +1,7 @@
+Sys.setenv(LANGUAGE = "en")
+options(stringsAsFactors = FALSE)
+rm(list=ls())
+set.seed(220)
+setwd("/home/bsb/breast/cox/")
+load('../scRNA/SCTB/df_new.RData')
+write.csv(df_new,'df_new.csv')
