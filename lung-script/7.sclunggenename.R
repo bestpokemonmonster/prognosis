@@ -1,0 +1,7 @@
+Sys.setenv(LANGUAGE = "en")
+options(stringsAsFactors = FALSE)
+rm(list=ls())
+setwd("/home/bsb/lung/cox/")
+set.seed(148)
+load('../sclung/df_new.RData')
+write.csv(df_new,'df_new.csv')
