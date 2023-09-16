@@ -29,7 +29,7 @@ rainbow(col.num)
 violin <- VlnPlot(scRNA,
                   features = c("nFeature_RNA", "nCount_RNA", "percent.mt","percent.HB"), 
                   cols =rainbow(col.num), 
-                  pt.size = 0.01, #if not show point£¬set pt.size = 0
+                  pt.size = 0.01, #if not show pointï¼Œset pt.size = 0
                   ncol = 4) + 
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
 violin
@@ -53,8 +53,8 @@ expB <- as.data.frame(scRNA1[["RNA"]]@counts)
 save(expB,file = '../SCTB/expB.RData')
 write.table(expB,'../SCTB/expB.txt',sep = '\t') 
 #SCTransform
-scRNA1 <- SCTransform(scRNA1, vars.to.regress = "percent.mt", verbose = FALSE)#ÅÅ³ýÏßÁ£ÌåÓ°Ïì¹éÒ»»¯
-##results are stored in£º
+scRNA1 <- SCTransform(scRNA1, vars.to.regress = "percent.mt", verbose = FALSE)
+##results are stored inï¼š
 scRNA1@assays$SCT
 #or
 scRNA1[["SCT"]]
@@ -73,7 +73,7 @@ objB<-FindClusters(objB,resolution=seq(0.1,1.2,by=0.05))
 pdf('../SCTB/4-bcclustree.pdf')
 clustree(objB)
 dev.off()
-###resolution decided according data£¬while cells more then 20000£¬resolution usually more than 1.0
+###resolution decided according dataï¼Œwhile cells more then 20000ï¼Œresolution usually more than 1.0
 scRNA1 <- FindClusters(scRNA1, resolution = 0.2)
 #TSNE
 scRNA1 = RunTSNE(scRNA1, dims = pc.num)
@@ -96,7 +96,7 @@ pc.num=1:33
 library(DoubletFinder)
 #test best parameter
 sweep.res.list <- paramSweep_v3(scRNA1, PCs = pc.num, sct = T)
-#log normalization£¬sct = F£¨default£©,set T if use SCTransform
+#log normalizationï¼Œsct = Fï¼ˆdefaultï¼‰,set T if use SCTransform
 sweep.stats <- summarizeSweep(sweep.res.list, GT = FALSE)  
 bcmvn <- find.pK(sweep.stats) #see the best parameter point
 pK_bcmvn <- bcmvn$pK[which.max(bcmvn$BCmetric)] %>% as.character() %>% as.numeric() #get best pK value
@@ -168,7 +168,7 @@ pdf('../SCTB/8-epithelialdot.pdf',width=10,height = 7)
 DotPlot(testname,features=Marker1)
 dev.off()
 
-#extract epithelial and T cells£¬add to metadata
+#extract epithelial and T cellsï¼Œadd to metadata
 View(scRNA1@meta.data)
 scRNA1@meta.data$celltype=celltype$predict
 p3<-DimPlot(scRNA1,group.by = 'seurat_clusters',label = T)
